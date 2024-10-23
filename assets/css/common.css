@@ -1,0 +1,69 @@
+.img-container {
+    height: 350px;
+    width: 100%;
+    overflow: hidden;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.img-container > img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    animation: blur-animation 4s ease-out;
+}
+
+@keyframes blur-animation {
+    from {
+        transform: scale(0.9);
+        filter: blur(10px);
+    }
+    to {
+        filter: blur(0px);
+    }
+}
+
+a {
+    position: relative;
+    text-decoration: none;
+}
+
+a::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    background-color: royalblue;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+a:hover::before {
+    transform: scaleX(1);
+}
+
+.slide-in {
+    animation: 1.3s slide-in-animation ease-out;
+}
+
+@keyframes slide-in-animation {
+    from {
+        margin-left: -10%;
+        opacity: 0;
+    }
+    to {
+        margin-left: 0%;
+        opacity: 1;
+    }
+}
+
+.pop-out {
+    transition: transform 2s ease-in-out;
+}
+
+.pop-out:hover {
+    transform: scale(1.2);
+}
